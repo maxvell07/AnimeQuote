@@ -1,6 +1,8 @@
 package malok.testtask.domain
 
-interface Repository {
+import com.sun.tools.javac.util.Pair
+
+interface AnimeRepository {
 
     suspend fun loadQuote(): Pair<Boolean, String>
 }

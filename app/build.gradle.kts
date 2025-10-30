@@ -6,9 +6,7 @@ plugins {
 
 android {
     namespace = "malok.animequote"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "malok.animequote"
