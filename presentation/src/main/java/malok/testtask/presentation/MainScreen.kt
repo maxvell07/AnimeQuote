@@ -1,5 +1,6 @@
 package malok.testtask.presentation
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -35,15 +36,24 @@ fun MainScreen(viewModel: MainViewModel) {
                 }
 
                 error != null -> {
+                    Column(modifier = Modifier.fillMaxSize(),
+                            verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
                         text = error,
-                        modifier = Modifier.align(Alignment.Center),
                         color = MaterialTheme.colorScheme.error
                     )
-                }
+                    Spacer(modifier = Modifier.padding(innerPadding))
+                    Button(modifier = Modifier.fillMaxWidth(),
+                        onClick = {viewModel.fetchAnimes()}){
+                        Text(text = "Refresh")
+                    }
+                }}
 
                 else -> {
-                    Column(modifier = Modifier.fillMaxSize()) {
+                    Column(modifier = Modifier.fillMaxSize(),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
                             text = tasks,
                             modifier = Modifier.align(Alignment.CenterHorizontally),

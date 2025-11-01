@@ -29,7 +29,11 @@ class MainViewModel(
             _error.value = null
             try {
                 val animes = repository.loadQuote()
-                _tasks.value = animes.second
+                if (animes.first){
+                    _tasks.value = animes.second
+                } else {
+                    _error.value = animes.second
+                }
             } catch (e: Exception){
                 _error.value = e.message
             } finally {
