@@ -1,4 +1,4 @@
-package malok.animequote.ui.theme
+package malok.testtask.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

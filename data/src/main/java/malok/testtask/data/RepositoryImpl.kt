@@ -1,6 +1,5 @@
 package malok.testtask.data
 
-import com.sun.tools.javac.util.Pair
 import malok.testtask.domain.AnimeRepository
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,7 +17,7 @@ class RepositoryImpl(
            val quote = api.getQuote()
            Pair(true, quote.data.content)
        } catch (e: Exception) {
-           Pair.of(false, e.message ?: "Unknown error")
+           Pair(false, e.message ?: "Unknown error")
        }
 
     }
