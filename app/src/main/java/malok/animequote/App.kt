@@ -1,23 +1,16 @@
 package malok.animequote
 
 import android.app.Application
-import malok.testtask.data.RepositoryImpl
-import malok.testtask.domain.AnimeRepository
-import malok.testtask.presentation.MainViewModel
-import malok.testtask.presentation.ProvideViewModel
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.GlobalContext.startKoin
 
-class App: Application(), ProvideViewModel {
-
-    private lateinit var viewModel: MainViewModel
+class App: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val repository: AnimeRepository = RepositoryImpl()
-        viewModel = MainViewModel(repository = repository)
+        startKoin {
+            androidContext(this@App)
+            modules(mainModule)
+        }
     }
-
-    override fun viewModel(): MainViewModel {
-        return viewModel
-    }
-
 }

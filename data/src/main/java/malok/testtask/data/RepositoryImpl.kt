@@ -1,16 +1,11 @@
 package malok.testtask.data
 
 import malok.testtask.domain.AnimeRepository
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-class RepositoryImpl(
+class RepositoryImpl @Inject constructor(
    val api: AnimeApi
 ): AnimeRepository {
-    constructor(): this(
-        Retrofit.Builder().baseUrl("https://api.animechan.io/v1/").addConverterFactory(
-            GsonConverterFactory.create()).build().create(AnimeApi::class.java)
-    )
 
     override suspend fun loadQuote(): Pair<Boolean, String> {
        return try {
