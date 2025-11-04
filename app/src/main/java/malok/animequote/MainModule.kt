@@ -1,6 +1,7 @@
 package malok.animequote
 
 import malok.testtask.data.AnimeApi
+import malok.testtask.data.AnimeQuoteResponse
 import malok.testtask.data.RepositoryImpl
 import malok.testtask.domain.AnimeRepository
 import malok.testtask.presentation.MainViewModel
